@@ -5,4 +5,4 @@ deployment:
   prod:
     branch: master
     commands:
-      - aws s3 sync nodejs/ s3://sahad-circleci --delete
+      - aws s3 sync s3://sahad-circleci --delete
