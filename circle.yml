@@ -5,4 +5,4 @@ deployment:
   prod:
     branch: master
     commands:
-      - aws s3 sync /home/ubuntu/nodejs s3://sahad-circleci2 --delete
+      - aws s3 sync /home/ubuntu/nodejs s3://sahad-circleci2 --delete --acl public-read
