@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    	<meta charset="utf-8">
+    	<title>my - Contact US</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"/>
+		<link rel="stylesheet" href="./css/contact-us.css"/>
+		<script src="https://cdn.smooch.io/smooch.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div align="center">
+				<br> <br>
+				<img  src="./img/hi.jpg" alt="hi" height="185" width="210"> </br>
+				<a href="./video.html">Demo Video</a>
+			</div>
+			<div class="row">
+				<form role="form" id="contact-form" class="contact-form">
+					<div class="row">
+						<div class="col-md-6">
+						<div class="form-group">
+							<input type="text" class="form-control" name="name" autocomplete="off" id="name" placeholder="Name">
+						</div>
+					</div>
+						<div class="col-md-6">
+						<div class="form-group">
+							<input type="email" class="form-control" name="email" autocomplete="off" id="email" placeholder="E-mail">
+						</div>
+					</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+						<div class="form-group">
+							<textarea class="form-control textarea" rows="3" name="message" id="message" placeholder="Message"></textarea>
+						</div>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col-md-12">
+					<button type="submit" class="btn main-btn pull-right">Send a message</button>
+					</div>
+					<div id="response"></div>
+					</div>
+					<div> 
+						<script>
+							Smooch.init({ appToken: '1dhwvtqxhkeuh9vao30470q9f' });
+							</script>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="./js/contact-us.js"></script>
+	<script type="text/javascript" src="./js/submit.js"></script>
+
+	</body>
+</html>

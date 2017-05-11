@@ -1,1 +1,2 @@
-# nodejs
+# blockchain
+Simple decentralized app
