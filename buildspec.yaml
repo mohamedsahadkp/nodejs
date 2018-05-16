@@ -7,10 +7,10 @@ env:
 phases:
     install:
         commands:
-        - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-        - sudo apt-get install -y nodejs
-        - curl -O -L https://npmjs.org/install.sh
-        - sudo sh install.sh
+        #- curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+        #- sudo apt-get install -y nodejs
+        #- curl -O -L https://npmjs.org/install.sh
+        #- sudo sh install.sh
         # - sudo apt-get install awscli
         # Install node dependancies.
         - cd ang
