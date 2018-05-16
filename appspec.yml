@@ -3,6 +3,14 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/exp-nodejs
+permissions:
+   - object: /home/ubuntu/exp-nodejs
+     pattern: "**"
+     owner: ubuntu
+     group: ubuntu
+     mode: 755
+     type:
+       - file
 hooks:
   BeforeInstall:
     - location: Scripts/UnzipResourceBundle.sh
@@ -10,10 +18,3 @@ hooks:
   AfterInstall:
     - location: Scripts/RunResourceTests.sh
       timeout: 180
-  ApplicationStart:
-    - location: Scripts/RunFunctionalTests.sh
-      timeout: 3600
-  ValidateService:
-    - location: Scripts/MonitorService.sh
-      timeout: 3600
-      runas: codedeployuser
