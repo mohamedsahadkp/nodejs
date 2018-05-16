@@ -1,0 +1,32 @@
+version: 0.2
+
+env:
+    variables:
+        S3_BUCKET: "experion-angular.com"
+
+phases:
+    install:
+        commands:
+        # Install NodeJS and npm
+        - sudo apt-get install nodejs npm build-essential libssl-dev
+        # - sudo apt-get install awscli
+        # Install node dependancies.
+        - cd ang
+        - npm install
+    build:
+        commands:
+        # Create build
+        - npm run build
+    post_build:
+        commands:
+        # Clear S3 bucket.
+        - aws s3 rm s3://${S3_BUCKET} --recursive
+        - echo S3 bucket is cleared.
+        # Copy dist folder to S3 bucket
+        - aws s3 cp dist s3://${S3_BUCKET} --recursive
+        - echo Build completed on `date`
+artifacts:
+    files:
+        - '**/*'
+    discard-paths: yes
+    base-directory: 'dist*'
