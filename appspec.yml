@@ -1,23 +1,14 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /home/ubuntu/exp-nodejs
-permissions:
-   - object: /home/ubuntu/exp-nodejs
-     pattern: "**"
-     owner: ubuntu
-     group: ubuntu
-     mode: 755
-     type:
-       - file
+  - source: /client
+    destination: /var/www/html
 hooks:
   BeforeInstall:
     - location: scripts/start.sh
-      pattern: "**"
-      owner: root
-      group: root
-      mode: 777
+      timeout: 300
+      runas: root
   AfterInstall:
     - location: scripts/start.sh
-      timeout: 180
+      timeout: 300
+      runas: root
