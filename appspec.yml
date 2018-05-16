@@ -13,8 +13,7 @@ permissions:
        - file
 hooks:
   BeforeInstall:
-    - location: Scripts/UnzipResourceBundle.sh
-    - location: Scripts/UnzipDataBundle.sh
+    - location: scripts/start.sh
   AfterInstall:
-    - location: Scripts/RunResourceTests.sh
+    - location: scripts/start.sh
       timeout: 180
