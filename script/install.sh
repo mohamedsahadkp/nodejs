@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /home/ubuntu/exp-nodejs
+cd /var/www/api
 npm intsall

@@ -2,13 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: /api
-    destination: /home/ubuntu/exp-nodejs
+    destination: /var/www/api
 hooks:
   BeforeInstall:
     - location: script/install.sh
       timeout: 300
-      runas: root
   AfterInstall:
     - location: script/start.sh
       timeout: 300
-      runas: root
