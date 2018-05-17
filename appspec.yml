@@ -5,7 +5,7 @@ files:
     destination: /var/www/api
 hooks:
   BeforeInstall:
-    - location: script/install.sh
+    - location: script/start.sh
       timeout: 300
   AfterInstall:
     - location: script/start.sh
