@@ -1,3 +1,1 @@
-#!/bin/sh
-sudo pm2 start all 
-sudo service nginx restart
+sudo pm2 restart all 
