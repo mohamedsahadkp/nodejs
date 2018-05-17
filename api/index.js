@@ -1,10 +1,17 @@
-const express = require('express')
-const app = express()
+var express = require('express');
+var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+var router = express.Router();
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-app.listen(3001, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.get('/list', function (req, res) {
+    res.send({"status": "true"});
+});
+
+var server = app.listen(3001, function () {
+  var host = server.address().address
+  var port = server.address().port
+  console.log("Example app listening at http://%s:%s", host, port)
+});

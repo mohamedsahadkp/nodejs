@@ -1,11 +1,11 @@
 version: 0.0
 os: linux
 files:
-  - source: /client
-    destination: /var/www/html
+  - source: /api
+    destination: /home/ubuntu/exp-nodejs
 hooks:
   BeforeInstall:
-    - location: script/start.sh
+    - location: script/install.sh
       timeout: 300
       runas: root
   AfterInstall:

@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /client
+    destination: /var/www/html
+hooks:
+  BeforeInstall:
+    - location: script/start.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: script/start.sh
+      timeout: 300
+      runas: root
