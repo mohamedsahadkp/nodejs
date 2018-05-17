@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get('/list', function (req, res) {
-    res.send({"status": "true"});
+    res.send({"status": "true - 1"});
 });
 
 var server = app.listen(3001, function () {
