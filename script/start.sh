@@ -1,5 +1,5 @@
 #!/bin/sh
 
-pm2 restart all 
+sudo pm2 start all 
 
 sudo service nginx restart
