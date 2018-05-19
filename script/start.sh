@@ -1,1 +1,6 @@
-sudo pm2 restart all 
+#!/bin/sh
+
+npm install
+
+pm2 restart all 
+

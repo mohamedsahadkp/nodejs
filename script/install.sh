@@ -1,4 +1,6 @@
 #!/bin/sh
-#cd /var/www/api
-#sudo pm2 stop all
-#sudo npm install
+
+cd /home/ubuntu/api
+
+pm2 stop all
+

@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /api
-    destination: /var/www/api
+    destination: /home/ubuntu/api
 hooks:
   BeforeInstall:
     - location: script/install.sh
