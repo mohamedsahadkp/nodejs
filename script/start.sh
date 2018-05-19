@@ -1,6 +1,8 @@
 #!/bin/sh
 
+cd /home/ubuntu/api
+
 npm install
 
-pm2 restart all 
+sudo pm2 restart all 
 

@@ -1,6 +1,4 @@
 #!/bin/sh
 
-cd /home/ubuntu/api
-
-pm2 stop all
+sudo pm2 stop all
 
