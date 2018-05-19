@@ -3,10 +3,19 @@ os: linux
 files:
   - source: /api
     destination: /home/ubuntu/api
+permissions:
+  - object: /home/ubuntu
+    owner: ubuntu
+    group: ubuntu
+    type:
+      - directory
+      - file
 hooks:
   BeforeInstall:
     - location: script/install.sh
       timeout: 300
+      runas: ubuntu
   AfterInstall:
     - location: script/start.sh
       timeout: 300
+      runas: ubuntu
