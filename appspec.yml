@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /
+  - source: /api
     destination: /home/ubuntu/api
 hooks:
   ApplicationStop:
@@ -15,4 +15,4 @@ hooks:
   AfterInstall:
     - location: script/start.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
