@@ -1,3 +1,9 @@
-#!/bin/sh
-pm2 delete all
+#!/bin/bash
+
+isExistApp = `sudo pm2 list`
+if [[ -n  $isExistApp ]]; then
+    sudo pm2 delete all       
+fi
+
+
 

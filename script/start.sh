@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /home/ubuntu/api
+cd /home/ec2-user/api
 
-pm2 start index.js 
+sudo pm2 start index.js 
 

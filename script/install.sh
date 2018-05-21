@@ -1,5 +1,6 @@
 #!/bin/sh
-cd /home/ubuntu/api
+
+cd /home/ec2-user/api
 
 npm install
 

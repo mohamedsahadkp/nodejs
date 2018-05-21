@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /api
-    destination: /home/ubuntu/api
+    destination: /home/ec2-user/api
 hooks:
   ApplicationStop:
     - location: script/stop.sh
@@ -12,7 +12,7 @@ hooks:
     - location: script/install.sh
       timeout: 300
       runas: root
-  AfterInstall:
     - location: script/start.sh
       timeout: 300
-      runas: ubuntu
+      runas: root
+    
