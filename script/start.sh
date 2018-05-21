@@ -4,5 +4,5 @@ cd /home/ubuntu/api
 
 npm install
 
-sudo pm2 start index.js 
+pm2 start index.js 
 
