@@ -1,3 +1,5 @@
 #!/bin/sh
-pm2 delete all
+cd /home/ubuntu/api/api
+
+npm install
 
