@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/ubuntu/api/api
+cd /home/ubuntu/api
 
 npm install
 

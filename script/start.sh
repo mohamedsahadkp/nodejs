@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd /home/ubuntu/api/api
+cd /home/ubuntu/api
 
 pm2 start index.js 
 
