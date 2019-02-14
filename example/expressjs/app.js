@@ -1,3 +1,5 @@
+
+const Joi = require('joi');
 const express = require('express');
 const app = express();
 
@@ -18,8 +20,17 @@ app.get('/api/course', (req, res) => {
 });
 
 app.post('/api/course', (req, res) => {
-    if(!req.body.name || req.body.name.length  < 3) {
-        res.sendStatus(400).send('Bad Request');
+    // if(!req.body.name || req.body.name.length  < 3) {
+    //     res.sendStatus(400).send('Bad Request');
+    //     return;
+    // }
+
+    const schema = {
+        name : Joi.string().min(3).required()
+    }
+    const result = Joi.validate(req.body, schema);
+    if(result.error) {
+        res.status(400).send(result.error);
         return;
     }
 
