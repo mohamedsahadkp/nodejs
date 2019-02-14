@@ -59,9 +59,16 @@ app.put('/api/course/:id', (req, res) => {
 
     // Look for course
     // If not exsiting, return 404
+    const course = courses.find(c => c.id === parseInt(req.params.id));
+    if(!course) { 
+        res.status(404).send("Not Found")
+        return;
+    }
 
     // Update course
     // Return updated code.
+    course.name = name;
+    res.send(course);
 });
 
 app.get('/api/course/:id', (req, res) => {
