@@ -18,6 +18,11 @@ app.get('/api/course', (req, res) => {
 });
 
 app.post('/api/course', (req, res) => {
+    if(!req.body.name || req.body.name.length  < 3) {
+        res.sendStatus(400).send('Bad Request');
+        return;
+    }
+
     const course = {
         id : courses.length + 1,
         name : req.body.name
