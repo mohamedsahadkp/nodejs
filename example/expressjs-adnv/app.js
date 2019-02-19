@@ -1,5 +1,6 @@
 const helmet = require('helmet');
 const morgan = require('morgan');
+const config = require('config');
 const express = require('express');
 const app = express();
 
@@ -22,6 +23,9 @@ if(app.get('env') == 'development') {
     app.use(morgan('tiny'));
     console.log("Morgan enabled")
 }
+
+console.log("App Name : " + config.get("name"));
+console.log("App Mail Server : " + config.get("mail.host"));
 
 const movies = [
     { id : 1, name : "Movie1" },

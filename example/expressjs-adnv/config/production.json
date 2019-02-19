@@ -1,0 +1,6 @@
+{ 
+    "name" : "Config Example Name - Production",
+    "mail" : {
+        "host" : "host-production"
+    }
+}
