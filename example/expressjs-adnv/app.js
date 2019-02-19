@@ -1,4 +1,5 @@
 const helmet = require('helmet');
+const morgan = require('morgan');
 const express = require('express');
 const app = express();
 
@@ -15,6 +16,12 @@ app.use((req, res, next) => {
 });
 
 app.use(log);
+
+//process.env.NODE_ENV
+if(app.get('env') == 'development') {
+    app.use(morgan('tiny'));
+    console.log("Morgan enabled")
+}
 
 const movies = [
     { id : 1, name : "Movie1" },
