@@ -3,7 +3,10 @@ const app = express();
 
 const log = require('./logger');
 
-app.use(express.json());
+app.use(express.json()); //req.body
+app.use(express.urlencoded); // 
+app.use(express.static('public'));
+
 app.use((req, res, next) => {
     console.log("Logging...");
     next();
