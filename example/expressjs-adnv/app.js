@@ -4,7 +4,7 @@ const app = express();
 const log = require('./logger');
 
 app.use(express.json()); //req.body
-app.use(express.urlencoded); // 
+app.use(express.urlencoded({ extended : true })); // 
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
