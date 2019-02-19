@@ -1,8 +1,10 @@
+const helmet = require('helmet');
 const express = require('express');
 const app = express();
 
 const log = require('./logger');
 
+app.use(helmet());
 app.use(express.json()); //req.body
 app.use(express.urlencoded({ extended : true })); // 
 app.use(express.static('public'));
