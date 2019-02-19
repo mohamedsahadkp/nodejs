@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 
+const log = require('./logger');
+
 app.use(express.json());
 app.use((req, res, next) => {
-    console.log("Logging....")
-})
+    console.log("Logging...");
+    next();
+});
+
+app.use(log);
 
 const movies = [
     { id : 1, name : "Movie1" },
