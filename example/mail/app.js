@@ -16,17 +16,20 @@ async function main(){
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Fred Foo 👻" <foo@www.training-benchmark.com>', // sender address
-    to: "mohamed.sahad@experionglobal.com, mohamedsahadkp@gmail.com", // list of receivers
+    from: '"Fred Foo 👻" <noreply@www.training-bestwestern.com>', // sender address
+    to: "mohamedsahadkp@gmail.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
     html: "<b>Hello world?</b>" // html body
   };
 
   // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions)
+  //let info = await transporter.sendMail(mailOptions)
+  let { messageId } = await transporter.sendMail(mailOptions)
 
-  console.log("Message sent: %s", info.messageId);
+
+  console.log("Message sent: %s", messageId);
+  console.log("Message sent: %s", );
 }
 
 main().catch(console.error);
