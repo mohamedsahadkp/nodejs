@@ -1,9 +1,10 @@
 console.log("Start");
 
 getUser(1, (user) => {
-    console.log('User :', user);
     getRepo(user.userName, (repos) => {
-        console.log('Repo :' + repos);
+        getCommits(repos[0], (commits) => {
+            console.log('Commits :', commits);
+        });
     });
 });
 
@@ -21,5 +22,11 @@ function getUser(id, callback) {
 function getRepo(name, callback) {
     setTimeout(() => {
         callback(["repo1", "repo2", "repo3"])
+    }, 2000)
+}
+
+function getCommits(repo, callback) {
+    setTimeout(() => {
+        callback(["commit1", "commit2", "commit3"])
     }, 2000)
 }
