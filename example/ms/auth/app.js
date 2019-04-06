@@ -1,69 +1,64 @@
+/* ----------------------------------
+*  Piot FMS - API
+*  Created By: 
+*  Created On: 
+*  Node: >=8.4.0
+*  ------------------------------------*/
+
 // ========================
 // Get the packages we need
 // ========================
 
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
-const fs = require('fs');
+const cors = require('cors');
+const _ = require('lodash');
 
-const config = require('dotenv').config();
-if (config.error) {
-	throw config.error;
-}
+const { appModules } = require('./app.config');
 
-// require('./core/database');
-const i18n = require('./core/language');
-const response = require('./core/response');
-const logger = require('./core/logs');
-const cors = require('./core/cors');
-const { appModules } = require('./app.module');
+const { logger } = require('./middleware/logs');
+const { response } = require('./middleware/response');
 
 // =======================
 // Configuration
 // =======================
+const PORT = process.env.PORT || 3000;
 
 const app = express();
-
-const port = process.env.PORT || 3000;
 app.use(helmet());
-app.set('i18n', new i18n());
-app.use(cors);
+app.use(cors());
+app.use(logger());
 app.use(express.static(`${__dirname}/public`));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '10mb' }));
 app.use(response);
-app.use(logger());
+
 
 // =======================
 // Dynamic route loading
 // =======================
+if (appModules) {
+	_.forEach(appModules, (category, key) => {
+		_.forEach(category.modules, (item) => {
+			const modulePath = `./modules/${key}/${item}/${item}.router.js`;
+			if (!fs.existsSync(modulePath)) {
+				throw new Error(`Dependency module '${modulePath}' not found`);
+			}
 
-if (Array.isArray(appModules)) {
-	for (let mod of appModules) {
-		let modPath = `./app/${mod}/${mod}.router.js`;
-
-		if (!fs.existsSync(modPath)) {
-			throw new Error(`Dependency module ${modPath} not found`);
-		}
-
-		let parts = require(modPath);
-		let basepath = parts.path || mod;
-
-		app.use(`/${basepath}`, parts.routes());
-	}
+			const parts = require(modulePath);
+			const basepath = parts.path || item;
+			app.use(`/${key}/${basepath}`, parts.routes(category.auth));
+		});
+	});
 }
 
-
-app.get('*', (req, res) => res.status(404).return());
+app.get('*', (req, res) => res.status(404).message('page-not-found').return());
 
 // =======================
 // Start the server
 // =======================
-app.listen(port, () => console.log(`
-===============================================
-App is up and running on http://0.0.0.0:${port}
-===============================================
-`));
+app.listen(PORT, () => console.log(`Server is listening on localhost:${PORT}`));
 
 module.exports = app;

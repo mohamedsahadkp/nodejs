@@ -1,0 +1,15 @@
+{
+    "development": {
+        "PORT": 3000,
+        "MYSQL_URI": "mysql://root:experion@localhost:3306/ms",
+        "JWT_SECRET": "fUfxjOWDUbIAFCmd2ox0joxlOQZPPpQi8PCXrgAoXymGZZTnNUXU",
+        "LOGS": true
+    },
+    "aws": {
+        "ACCESS_KEY": "",
+        "SECRET_ACCESSKEY": "",
+        "REGION":"",
+        "HOTSPOT_BUCKET": ""
+    }
+}
+

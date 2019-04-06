@@ -1,13 +1,10 @@
 const Sequelize = require('sequelize');
+const Config = require('./../config/config.json')
 
-if(!process.env.MYSQL_URI) {
-    throw new Error('MySQL connection string not found');
-}
-
-const connectionString = process.env.MYSQL_URI;
+const connectionString = Config.development.MYSQL_URI;
 const options = {
 	dialect : 'mysql',
-	logging: false
+	logging: true
 };
 
 const connection = new Sequelize(connectionString, options);
