@@ -3,8 +3,9 @@ const router = require('express').Router();
 const { 
 	login,
 	signup, 
-	updatePassword 
-} = require('./auth.service');
+	updatePassword,
+	resetPassword
+} = require('./auth.service').default;
 
 const { 
 	loginValidation,
@@ -13,16 +14,17 @@ const {
 
 
 var routes = () => {
-	// Not required in production
 	router.route('/login')
 		.post(loginValidation, login);
 	
 	router.route('/signup')
 		.post(signupValidation, signup);
 
-	// Feature is not required
 	router.route('/forgot')
 		.patch(updatePassword);
+	
+	router.route('/reset-password')
+		.patch(resetPassword);
 
 	return router;
 };

@@ -24,19 +24,19 @@ fs.readdirSync(`${__dirname}/../models`)
  * Specify relations between tables below
  *****************************************/
 //device --> devicetype <-- channel
-DB.device.belongsTo(DB.devicetype, { foreignKey: 'devicetype_id' });
-DB.channel.belongsTo(DB.devicetype, { foreignKey: 'devicetype_id' });
+// DB.device.belongsTo(DB.devicetype, { foreignKey: 'devicetype_id' });
+// DB.channel.belongsTo(DB.devicetype, { foreignKey: 'devicetype_id' });
 
-DB.devicetype.hasOne(DB.device, { foreignKey: 'devicetype_id' });
-DB.devicetype.hasMany(DB.channel, { foreignKey: 'devicetype_id' });
+// DB.devicetype.hasOne(DB.device, { foreignKey: 'devicetype_id' });
+// DB.devicetype.hasMany(DB.channel, { foreignKey: 'devicetype_id' });
 
-// Room --> Operationdown
-DB.operationdown.belongsTo(DB.room, { foreignKey: 'room_id' });
-DB.room.hasMany(DB.operationdown, { foreignKey: 'room_id' });
+// // Room --> Operationdown
+// DB.operationdown.belongsTo(DB.room, { foreignKey: 'room_id' });
+// DB.room.hasMany(DB.operationdown, { foreignKey: 'room_id' });
 
-//Room --> GrowcycleStatus
-DB.grocyclestatus.belongsTo(DB.room, { foreignKey: 'room_id' });
-DB.room.hasOne(DB.grocyclestatus, { foreignKey: 'room_id' });
+// //Room --> GrowcycleStatus
+// DB.grocyclestatus.belongsTo(DB.room, { foreignKey: 'room_id' });
+// DB.room.hasOne(DB.grocyclestatus, { foreignKey: 'room_id' });
 
 // Export connection object
 DB.connection = connection;

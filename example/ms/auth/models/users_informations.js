@@ -8,28 +8,28 @@ module.exports = function(sequelize, DataTypes) {
 			primaryKey: true,
 			autoIncrement: true
 		},
-		user_name: {
+		name: {
 			type: DataTypes.STRING(45),
 			allowNull: false
 		},
-		user_email: {
+		email: {
 			type: DataTypes.STRING(45),
 			allowNull: false,
 			unique: true
 		},
-		user_mobile: {
+		mobile: {
 			type: DataTypes.STRING(45),
 			allowNull: false
 		},
-		user_created_time: {
+		created_time: {
 			type: DataTypes.STRING(45),
 			allowNull: false
 		},
-		user_is_active: {
+		is_active: {
 			type: DataTypes.INTEGER(1),
 			allowNull: false
 		},
-		user_is_deleted: {
+		is_deleted: {
 			type: DataTypes.INTEGER(1),
 			allowNull: false
 		},
