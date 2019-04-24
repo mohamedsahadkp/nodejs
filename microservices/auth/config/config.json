@@ -8,8 +8,7 @@
     "aws": {
         "ACCESS_KEY": "",
         "SECRET_ACCESSKEY": "",
-        "REGION":"",
-        "HOTSPOT_BUCKET": ""
+        "REGION":""
     }
 }
 

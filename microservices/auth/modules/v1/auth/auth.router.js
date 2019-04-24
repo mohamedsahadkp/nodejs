@@ -5,7 +5,7 @@ const {
 	signup, 
 	updatePassword,
 	resetPassword
-} = require('./auth.service').default;
+} = require('./auth.service');
 
 const { 
 	loginValidation,
@@ -20,7 +20,7 @@ var routes = () => {
 	router.route('/signup')
 		.post(signupValidation, signup);
 
-	router.route('/forgot')
+	router.route('/forgot-password')
 		.patch(updatePassword);
 	
 	router.route('/reset-password')

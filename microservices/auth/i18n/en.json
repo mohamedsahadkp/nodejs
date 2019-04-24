@@ -16,5 +16,5 @@
     "restaurant-list-empty": "Restaurant list is empty",
     "item-already-in-menu-category": "This food item is already added to the selected menu category",
     "unique-name-exists": "The unique name you have chosen is already in use",
-    "mobile-number-exists": "Mobile number already in use",
+    "mobile-number-exists": "Mobile number already in use"
 }

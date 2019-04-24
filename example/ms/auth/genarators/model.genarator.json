@@ -1,8 +1,0 @@
-{
-	"additional": {
-		"freezeTableName": true,
-		"timestamps": false,
-		"createdAt": false,
-		"updatedAt": false
-	}
-}

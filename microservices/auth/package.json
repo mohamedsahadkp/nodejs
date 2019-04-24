@@ -1,7 +1,7 @@
 {
-  "name": "piot-fms-api",
+  "name": "ms-name",
   "version": "1.0.0",
-  "description": "Piot FMS - API ",
+  "description": "MS Name",
   "main": "app.js",
   "author": "",
   "private": true,
@@ -11,13 +11,8 @@
   },
   "scripts": {
     "serve": "nodemon --exec \" eslint ./modules/**/*.js ./middleware/**/*.js && npm run start\"",
-    "build": "npm test && npm run apidoc",
     "start": "nodemon app.js",
-    "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha ./modules/**/*.test.js",
-    "apidoc": "npm run apidoc-user && npm run apidoc-manager && npm run apidoc-admin",
-    "apidoc-user": "apidoc -i ./modules/user-api -o public/doc/mobile",
-    "gen:model": "sh ./genarators/model.genarator.sh",
-    "gen:module": "sh ./genarators/module.genarator.sh"
+    "test": "export NODE_ENV=test || SET NODE_ENV=test && mocha ./modules/**/*.test.js"
   },
   "dependencies": {
     "aws-sdk": "^2.156.0",

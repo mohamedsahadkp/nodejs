@@ -3,15 +3,9 @@ const bcrypt = require('bcryptjs');
 const moment = require('moment');
 const Const = require('./constant.helper');
 
-/******************************
- * General utility functions
- * Author: 
- * Created On: 
- *****************************/
 module.exports.generateJwtToken = async (data) => {
 	// Token will be expired in 60 hrs
 	//return jwt.sign(data, 'fUfxjOWDUbIAFCmd2ox0joxlOQZPPpQi8PCXrgAoXymGZZTnNUXU', { expiresIn: 60 * 60 * 60 }).toString();
-	return jwt.sign(data, 'fUfxjOWDUbIAFCmd2ox0joxlOQZPPpQi8PCXrgAoXymGZZTnNUXU').toString();
 };
 
 // Function to encrypt password

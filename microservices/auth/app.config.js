@@ -4,7 +4,7 @@
 *  ----------------------------------------------------------------------*/
 
 const env = process.env.NODE_ENV || 'development';
-if (env === 'development' || env === 'stage') {
+if (env === 'development') {
 	const config = require('./config/config.json');
 	const envConfig = config[env];
 
