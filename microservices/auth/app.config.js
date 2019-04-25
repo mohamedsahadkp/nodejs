@@ -1,18 +1,14 @@
-/* ----------------------------------------------------------------------
-*  Creating environment varialbles from config file.
-*  PLEASE DO'T EDIT THE BELOW LINES
-*  ----------------------------------------------------------------------*/
+//Environment varialbles from config file.
+
+const dotenv = require('dotenv');
 
 const env = process.env.NODE_ENV || 'development';
 if (env === 'development') {
-	const config = require('./config/config.json');
-	const envConfig = config[env];
-
-	Object.keys(envConfig).forEach((key) => {
-		process.env[key] = envConfig[key];
-	});
+	const config = dotenv.config();
+	if (config.error) {
+		throw config.error;
+	}
 }
-
 
 const { authenticate } = require('./middleware/authentication');
 
