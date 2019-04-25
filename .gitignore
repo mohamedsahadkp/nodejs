@@ -90,4 +90,7 @@ typings/
 #
 package-lock.json
 
+#
+.env
+
 # End of https://www.gitignore.io/api/node
