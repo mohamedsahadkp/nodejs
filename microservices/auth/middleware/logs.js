@@ -1,24 +1,40 @@
 const winston = require('winston');
-const expressWinston = require('express-winston');
+const CloudWatchTransport = require('winston-aws-cloudwatch');
 
-const logger = function () {
-	if (process.env.LOGS !== 'true') {
-		return (req, res, next) => next();
-	}
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
-	return expressWinston.logger({
-		transports: [
-			new winston.transports.Console({
-				json: false,
-				colorize: true
-			})
-		],
-		ignoreRoute: (req) => !!req.originalUrl.match(/^\/doc\//),
-		meta: false,
-		msg: 'HTTP {{req.method}} {{req.url}}',
-		expressFormat: true,
-		colorize: true
-	});
+const logger = new winston.Logger({
+  transports: [
+    new (winston.transports.Console)({
+      timestamp: true,
+      colorize: true,
+    })
+  ]
+});
+
+var config = {
+  logGroupName: 'my-log-group',
+  logStreamName: NODE_ENV,
+  createLogGroup: false,
+  createLogStream: true,
+  awsConfig: {
+    accessKeyId: process.env.CLOUDWATCH_ACCESS_KEY_ID,
+    secretAccessKey: process.env.CLOUDWATCH_SECRET_ACCESS_KEY,
+    region: process.env.CLOUDWATCH_REGION
+  },
+  formatLog: function (item) {
+    return item.level + ': ' + item.message + ' ' + JSON.stringify(item.meta)
+  }
+}
+
+if (NODE_ENV != 'development') logger.add(CloudWatchTransport, config);
+
+logger.level = process.env.LOG_LEVEL || "silly";
+
+logger.stream = {
+  write: function(message, encoding) {
+    logger.info(message);
+  }
 };
 
 module.exports = { logger };

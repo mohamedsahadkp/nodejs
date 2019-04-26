@@ -1,5 +1,4 @@
 const { validationResult } = require('express-validator/check');
-var rp = require('request-promise');
 const Config = require('./../../../config/config.json');
 const Const = require('../../../helper/constant.helper');
 

@@ -3,7 +3,7 @@ const Op = require('sequelize').Op;
 const { users: Users } = require('../helper/db.helper');
 
 const authenticate = {
-	api: async function (req, res, next) {
+	user: async function (req, res, next) {
 		const token = req.header('x-access-key');
 		try {
 			const decoded = jwt.verify(token,'fUfxjOWDUbIAFCmd2ox0joxlOQZPPpQi8PCXrgAoXymGZZTnNUXU');
