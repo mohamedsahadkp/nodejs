@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator/check');
-const Config = require('./../../../config/config.json');
 const Const = require('../../../helper/constant.helper');
+const { logger } = require('../../../middleware/logs');
 
 const {
 	getUserListQuery
@@ -14,6 +14,10 @@ const getUserList = async (req, res) => {
 
 	try {
 		const userList = await getUserListQuery();
+		logger.warn("getUserListQuery Warn ");
+		logger.info("getUserListQuery Info ");
+		logger.error("getUserListQuery Error ")
+		
 		if (userList) {
 			return res.status(200).return(userList);
 		} else {

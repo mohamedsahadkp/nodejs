@@ -4,6 +4,17 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const cors = require('cors');
 const _ = require('lodash');
+const dotenv = require('dotenv');
+
+const env = process.env.NODE_ENV || 'development';
+console.log('NodeJS Env :' + env);
+
+if (env === 'development') {
+	const config = dotenv.config();
+	if (config.error) {
+		throw config.error;
+	}
+} 
 
 const { appModules } = require('./app.config');
 const { logger } = require('./middleware/logs');
@@ -15,7 +26,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(helmet());
 app.use(cors());
-app.use(logger());
+//app.use(logger());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: '5mb' }));
 app.use(response);
@@ -32,7 +43,7 @@ if (appModules) {
 			const parts = require(modulePath);
 			const basepath = parts.path || item;
 			app.use(`/${key}/${basepath}`, parts.routes(category.auth));
-		});
+		});appModules
 	});
 }
 

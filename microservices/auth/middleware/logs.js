@@ -19,8 +19,8 @@ var config = {
   createLogStream: true,
   awsConfig: {
     accessKeyId: process.env.CLOUDWATCH_ACCESS_KEY_ID,
-    secretAccessKey: process.env.CLOUDWATCH_SECRET_ACCESS_KEY,
-    region: process.env.CLOUDWATCH_REGION
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION
   },
   formatLog: function (item) {
     return item.level + ': ' + item.message + ' ' + JSON.stringify(item.meta)

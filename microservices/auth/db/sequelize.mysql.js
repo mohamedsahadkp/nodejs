@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize');
-const Config = require('./../config/config.json')
 
-const connectionString = Config.development.MYSQL_URI;
+const connectionString = process.env.MYSQL_URI;
+console.log("COnn :  " + connectionString);
+
 const options = {
 	dialect : 'mysql',
 	logging: true
