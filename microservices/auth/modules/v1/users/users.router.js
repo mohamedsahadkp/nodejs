@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const { 
+const {
 	getUserList
 } = require('./users.service');
 
-const { 
+const {
 } = require('./users.validation');
 
 var routes = (authenticate) => {

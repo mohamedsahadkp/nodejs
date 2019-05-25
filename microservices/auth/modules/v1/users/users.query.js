@@ -8,15 +8,14 @@ const {
 const getUserListQuery = async () => {
 	const userList = [{
 		"name" : "Experion",
-		"address" : "Trivandrum"	
+		"address" : "Trivandrum"
 	}, {
 		"name" : "Experion 2",
-		"address" : "Trivandrum 2"	
+		"address" : "Trivandrum 2"
 	}]
 	return userList;
 };
 
-	
 module.exports = {
 	getUserListQuery
 };

@@ -17,7 +17,7 @@ const getUserList = async (req, res) => {
 		logger.warn("getUserListQuery Warn ");
 		logger.info("getUserListQuery Info ");
 		logger.error("getUserListQuery Error ")
-		
+
 		if (userList) {
 			return res.status(200).return(userList);
 		} else {
@@ -29,6 +29,6 @@ const getUserList = async (req, res) => {
 	}
 };
 
-module.exports = { 
+module.exports = {
 	getUserList
 };
