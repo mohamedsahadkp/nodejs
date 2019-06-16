@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {
-	getUserList
+	getUserList,
+	getUser
 } = require('./users.service');
 
 const {
@@ -9,6 +10,9 @@ const {
 var routes = (authenticate) => {
 	router.route('/')
 		.get(getUserList);
+
+	router.route('/id')
+		.get(getUser);
 
 	return router;
 };

@@ -9,7 +9,7 @@ const authenticate = {
 			const decoded = jwt.verify(token,'fUfxjOWDUbIAFCmd2ox0joxlOQZPPpQi8PCXrgAoXymGZZTnNUXU');
 			const user = await getUser(decoded);
 			if (!user) throw new Error('Un authorized');
-      
+			
 			req.user = user;
 			req.token = token;
 			next();

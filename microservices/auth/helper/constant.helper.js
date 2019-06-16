@@ -1,10 +1,3 @@
-/*
- +-----------------------------------------------------------+
- | Module Name: CONSTANT MODULE 	                         |
- | Module Purpose: Manage the Constants in the response      |
- | Author: vishnu.g                                          |
- +-----------------------------------------------------------+
-*/
 'use strict';
 
 module.exports = {
@@ -13,7 +6,7 @@ module.exports = {
 	FALSE                   : false,
 	ACTIVITY_LIMIT          : 10,
 	ALERT_LIMIT             : 10,
-	
+
 	USER                    : 'U',
 	ADMIN                   : 'A',
 	DEFAULT_LIMIT           : 0,

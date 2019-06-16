@@ -14,7 +14,7 @@ if (env === 'development') {
 	if (config.error) {
 		throw config.error;
 	}
-} 
+}
 
 const { appModules } = require('./app.config');
 const { logger } = require('./middleware/logs');

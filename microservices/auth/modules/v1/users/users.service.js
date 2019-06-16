@@ -29,6 +29,20 @@ const getUserList = async (req, res) => {
 	}
 };
 
+const getUser = async (req, res) => {
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+		return res.status(406).message('not-acceptable').return(errors.mapped());
+	}
+
+	try {
+	} catch (e) {
+		console.log(e);
+		return res.errorHandler(e);
+	}
+};
+
 module.exports = {
-	getUserList
+	getUserList,
+	getUser
 };
