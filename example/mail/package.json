@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.478.0",
     "nodemailer": "^5.1.1"
   }
 }

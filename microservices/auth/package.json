@@ -24,6 +24,7 @@
     "express-validator": "^4.3.0",
     "express-winston": "^2.4.0",
     "fs": "0.0.1-security",
+    "glob": "^7.1.4",
     "group-by": "0.0.1",
     "helmet": "^3.9.0",
     "jsonwebtoken": "^8.1.0",

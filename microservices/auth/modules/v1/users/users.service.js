@@ -7,24 +7,26 @@ const {
 } = require('./users.query');
 
 const getUserList = async (req, res) => {
+	logger.info("getUserListQuery Info ");
+
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
+		logger.info("getUserListQuery Info ");
 		return res.status(406).message('not-acceptable').return(errors.mapped());
 	}
 
 	try {
 		const userList = await getUserListQuery();
-		logger.warn("getUserListQuery Warn ");
-		logger.info("getUserListQuery Info ");
-		logger.error("getUserListQuery Error ")
-
 		if (userList) {
 			return res.status(200).return(userList);
 		} else {
 			return res.status(401).message('not-authorized').return();
 		}
 	} catch (e) {
-		console.log(e);
+		logger.error(
+			`Failed to process getUserList,
+			Req Body:` + req + `,
+			Error Stack:` + e);
 		return res.errorHandler(e);
 	}
 };

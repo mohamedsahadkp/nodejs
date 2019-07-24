@@ -1,19 +1,13 @@
 const router = require('express').Router();
-const {
-	getUserList,
-	getUser
-} = require('./users.service');
-
-const {
-} = require('./users.validation');
+import { getUserList, getUser } from './users.service';
+import {} from './users.validation';
 
 var routes = (authenticate) => {
 	router.route('/')
 		.get(getUserList);
-
 	router.route('/id')
 		.get(getUser);
-
 	return router;
-};
-module.exports = { routes, path: 'users' };
+}; 	
+
+export default { routes, path: 'users' };

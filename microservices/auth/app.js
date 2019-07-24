@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const _ = require('lodash');
 const dotenv = require('dotenv');
+var glob = require("glob")
 
 const env = process.env.NODE_ENV || 'development';
 console.log('NodeJS Env :' + env);
@@ -32,21 +33,27 @@ app.use(bodyParser.json({ limit: '5mb' }));
 app.use(response);
 
 // Dynamic route loading
-if (appModules) {
-	_.forEach(appModules, (category, key) => {
-		_.forEach(category.modules, (item) => {
-			const modulePath = `./modules/${key}/${item}/${item}.router.js`;
-			if (!fs.existsSync(modulePath)) {
-				throw new Error(`Dependency module '${modulePath}' not found`);
-			}
+// if (appModules) {
+// 	_.forEach(appModules, (category, key) => {
+// 		_.forEach(category.modules, (item) => {
+// 			const modulePath = `./modules/${key}/${item}/${item}.router.js`;
+// 			if (!fs.existsSync(modulePath)) {
+// 				throw new Error(`Dependency module '${modulePath}' not found`);
+// 			}
 
-			const parts = require(modulePath);
-			const basepath = parts.path || item;
-			app.use(`/${key}/${basepath}`, parts.routes(category.auth));
-		});appModules
-	});
-}
-
+// 			const parts = require(modulePath);
+// 			const basepath = parts.path || item;
+// 			app.use(`/${key}/${basepath}`, parts.routes(category.auth));
+// 		});appModules
+// 	});
+// }
+const options = {};
+glob("**/*.js", options, function (er, files) {
+	// files is an array of filenames.
+	// If the `nonull` option is set, and nothing
+	// was found, then files is ["**/*.js"]
+	// er is an error object or null.
+  })
 app.get('*', (req, res) => res.status(404).message('page-not-found').return());
 
 // Start The Server
