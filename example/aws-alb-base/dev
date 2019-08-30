@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.web>
+    <httpRuntime maxRequestLength="1048576" />
+  </system.web>
+  <system.webServer>
+    <handlers>
+      <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
+    </handlers>
+    <!--<aspNetCore processPath="%LAUNCHER_PATH%" arguments="%LAUNCHER_ARGS%" forwardWindowsAuthToken="false" stdoutLogEnabled="false"  requestTimeout="00:20:00" />-->
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="1073741824" />
+      </requestFiltering>
+    </security>
+    <aspNetCore processPath="dotnet" arguments=".\Salesboost.dll" forwardWindowsAuthToken="false" stdoutLogEnabled="false" requestTimeout="00:20:00" hostingModel="InProcess" stdoutLogFile=".\logs\stdout">
+      <environmentVariables>
+        <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="ExperionDevelopment" />
+      </environmentVariables>
+    </aspNetCore>
+        <httpProtocol>
+            <customHeaders>
+                <add name="X-XSS-Protection" value="1; mode=block" />
+            </customHeaders>
+        </httpProtocol>
+  </system.webServer>
+</configuration>
+<!--ProjectGuid: A4B02BC2-9A7B-4D72-B146-621D45E6C8E5--><?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <system.web>
+    <httpRuntime maxRequestLength="1048576" />
+  </system.web>
+  <system.webServer>
+    <handlers>
+      <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModule" resourceType="Unspecified" />
+    </handlers>
+    <!--<aspNetCore processPath="%LAUNCHER_PATH%" arguments="%LAUNCHER_ARGS%" forwardWindowsAuthToken="false" stdoutLogEnabled="false"  requestTimeout="00:20:00" />-->
+    <security>
+      <requestFiltering>
+        <requestLimits maxAllowedContentLength="1073741824" />
+      </requestFiltering>
+    </security>
+    <aspNetCore processPath="dotnet" arguments=".\Salesboost.dll" forwardWindowsAuthToken="false" stdoutLogEnabled="false" requestTimeout="00:20:00" hostingModel="InProcess" stdoutLogFile=".\logs\stdout">
+      <environmentVariables>
+        <environmentVariable name="ASPNETCORE_ENVIRONMENT" value="ExperionDevelopment" />
+      </environmentVariables>
+    </aspNetCore>
+        <httpProtocol>
+            <customHeaders>
+                <add name="X-XSS-Protection" value="1; mode=block" />
+            </customHeaders>
+        </httpProtocol>
+  </system.webServer>
+</configuration>
+<!--ProjectGuid: A4B02BC2-9A7B-4D72-B146-621D45E6C8E5-->
