@@ -20,4 +20,10 @@ app.post("/", (req, res) => {
     }
 });
 
+app.get("/api", (req, res) => {
+    res.json({
+        data: "Sahad"
+    })
+});
+
 module.exports = app;
