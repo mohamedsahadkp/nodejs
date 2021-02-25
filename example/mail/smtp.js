@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer");
 async function main(){
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: "email-smtp.us-west-2.amazonaws.com",
+    host: "email-smtp.ap-southeast-2.amazonaws.com",
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
@@ -16,8 +16,8 @@ async function main(){
 
   // setup email data with unicode symbols
   let mailOptions = {
-    from: '"Fred Foo 👻" <mohamed,saafda>', // sender address
-    to: "", // list of receivers
+    from: '"Fred Foo 👻" <test@test.com>', // sender address
+    to: "test@test.com", // list of receivers
     subject: "Hello 123 ✔", // Subject line
     text: "Hello world?", // plain text body
     html: "<b>Hello world?</b>" // html body
